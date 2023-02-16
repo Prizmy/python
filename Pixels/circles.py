@@ -14,7 +14,7 @@ def pyshader(func, w, h):
 
 def func(x, y):
     def circle(shift):
-        return 0.1 - (x - (0.5 + shift)) ** 2 - (y - (0.5 + shift)) ** 2
+        return 0.1 - (x - (0.5 + shift))**2 - (y - (0.5 + shift))**2
     return 10 * circle(0.03), 10 * circle(-0.03), 0
     
 

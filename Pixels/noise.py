@@ -13,8 +13,8 @@ def pyshader(func, w, h):
 
 
 def func(x, y):
-    r = 100
-    cl = (math.sin(x) * math.cos(y) + x * r + y * r) ** 4 % 1
+    r = 1000
+    cl = (x * y + x * r + y * r) ** 4 % 1
     return cl, cl, cl
     
 

@@ -13,15 +13,10 @@ def pyshader(func, w, h):
 
 
 def func(x, y):
-    cl = 0
-    cl = 0.1 - (x - 0.5) ** 2 - (y - 0.5) ** 2
-    if cl > 0:
-        cl = 255
-    if (0.003 - (x - 0.6) ** 2 - (y - 0.3) ** 2) > 0:
-        cl = 0
-    if (y>=0.5 and x - y > 0) or (y < 0.5 and x + y >= 1):
-        cl = 0
-    return cl, cl, 0
+    cl = (0.1 - (x - 0.5) ** 2 - (y - 0.5) ** 2)*100
+    cl = cl * -(0.003 - (x - 0.6) ** 2 - (y - 0.3) ** 2)
+    cl = cl * (((y >= 0.5) * ((x - y) < 0)) + ((y < 0.5) * ((x + y) <= 1)))
+    return cl * 100 ** 2, cl * 100 ** 2, 0
     
 
 label = tk.Label()
